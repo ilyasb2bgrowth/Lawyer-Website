@@ -353,3 +353,69 @@ footer {
     margin-top: 10px;
   }
 }
+/* =========================================
+   READABILITY & PAGE STRUCTURE FIXES
+   (CRITICAL POLISH)
+========================================= */
+
+/* Limit text width for readability */
+.practice-area,
+section > .container {
+  max-width: 900px;
+}
+
+/* Center long-form content */
+.practice-area {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Improve list appearance */
+.practice-area ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.practice-area li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Add visual grouping to inner pages */
+.practice-area {
+  background: #ffffff;
+  padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+/* Add subtle page background contrast */
+body {
+  background: #f5f7fa;
+}
+
+/* Restore white background to main sections */
+section {
+  background: #ffffff;
+}
+
+/* Improve inner-page headings spacing */
+.practice-area h2 {
+  margin-top: 0;
+}
+
+.practice-area h4 {
+  margin-top: 30px;
+}
+
+/* Prevent text from touching screen edges on mobile */
+@media (max-width: 768px) {
+  section {
+    padding: 50px 20px;
+  }
+
+  .practice-area {
+    padding: 30px 20px;
+  }
+}
+
