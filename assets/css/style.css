@@ -1,23 +1,27 @@
 /* =====================================================
-   SAMPLE LAW FIRM WEBSITE
-   Demo Project – Production Safe
+   PREMIUM LAW FIRM WEBSITE - LUXURY EDITION
+   Authoritative • Sophisticated • Conversion-Optimized
    ===================================================== */
 
-/* =============================
-   VARIABLES
-============================= */
+/* -----------------------------
+   CSS VARIABLES (LUXURY PALETTE)
+-------------------------------- */
 :root {
-  --navy: #0b1f33;
-  --charcoal: #1f2933;
-  --gold: #bfa46f;
-  --light: #f9f9f9;
+  --navy: #0b1a2c;
+  --charcoal: #1a1a1a;
+  --gold: #c5a572;
+  --light-gold: #e8d8b8;
+  --cream: #f8f5f0;
   --text: #2b2b2b;
-  --border: #e5e7eb;
+  --border: #e0d6c9;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
-/* =============================
-   RESET
-============================= */
+/* -----------------------------
+   RESET & BASE
+-------------------------------- */
 *,
 *::before,
 *::after {
@@ -26,71 +30,129 @@
   box-sizing: border-box;
 }
 
-/* =============================
-   BASE
-============================= */
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text);
-  background: #fff;
-  line-height: 1.7;
   font-size: 16px;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+  font-weight: 300;
+}
+
+/* -----------------------------
+   TYPOGRAPHY
+-------------------------------- */
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h1 { 
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+h2 { 
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+}
+
+h3 { 
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 300;
+}
+
+.lead {
+  font-size: 1.3rem;
+  color: #555;
+  line-height: 1.6;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
 }
 
-/* =============================
-   TYPOGRAPHY
-============================= */
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  color: var(--navy);
-  margin-bottom: 15px;
-  line-height: 1.3;
-}
-
-h1 { font-size: 2.6rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-
-p {
-  margin-bottom: 15px;
-}
-
-/* =============================
-   LAYOUT
-============================= */
+/* -----------------------------
+   LAYOUT HELPERS
+-------------------------------- */
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 section {
-  padding: 70px 0;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
 }
 
-/* =============================
-   HEADER
-============================= */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* -----------------------------
+   HEADER & NAVIGATION
+-------------------------------- */
 .site-header {
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(224, 214, 201, 0.3);
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
+  padding: 15px 0;
+  transition: var(--transition);
+}
+
+.site-header.scrolled {
+  padding: 10px 0;
+  box-shadow: var(--shadow);
 }
 
 .site-header .container {
@@ -102,320 +164,793 @@ section {
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--navy);
+  position: relative;
+  padding-left: 50px;
+}
+
+.logo::before {
+  content: '⚖️';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 nav a {
-  margin-left: 25px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 0.95rem;
+  position: relative;
+  padding: 5px 0;
+  color: var(--charcoal);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--navy);
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a.btn {
   background: var(--navy);
   color: #fff;
-  padding: 10px 18px;
-  border-radius: 4px;
+  padding: 12px 28px;
+  border-radius: 2px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--navy);
 }
 
-/* =============================
-   HERO
-============================= */
+nav a.btn:hover {
+  background: transparent;
+  color: var(--navy);
+}
+
+/* -----------------------------
+   HERO SECTION
+-------------------------------- */
 .hero {
-  background: var(--light);
+  background: linear-gradient(rgba(11, 26, 44, 0.9), rgba(11, 26, 44, 0.95)), 
+              url('https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 180px 0 120px;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(197, 165, 114, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero h1 {
-  max-width: 750px;
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards 0.3s;
 }
 
-.hero p {
-  max-width: 620px;
-  font-size: 1.05rem;
+.hero .lead {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards 0.5s;
 }
 
 .hero-cta {
-  margin-top: 25px;
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards 0.7s;
 }
 
-/* =============================
+/* -----------------------------
    BUTTONS
-============================= */
+-------------------------------- */
 .btn-primary,
 .btn-secondary {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 38px;
+  font-weight: 500;
+  border-radius: 2px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  gap: 10px;
 }
 
 .btn-primary {
-  background: var(--navy);
-  color: #fff;
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 4px 15px rgba(197, 165, 114, 0.3);
 }
 
 .btn-primary:hover {
-  background: #081a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(197, 165, 114, 0.4);
+  background: var(--light-gold);
+  color: var(--navy);
+}
+
+.btn-primary::after {
+  content: '→';
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover::after {
+  transform: translateX(5px);
 }
 
 .btn-secondary {
-  border: 1px solid var(--navy);
-  color: var(--navy);
-  margin-left: 10px;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: var(--navy);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold);
+  transform: translateY(-3px);
 }
 
-/* =============================
-   TRUST STRIP
-============================= */
+/* -----------------------------
+   TRUST SIGNALS
+-------------------------------- */
+.trust {
+  background: white;
+  padding: 80px 0;
+  position: relative;
+}
+
+.trust::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
 .trust .container {
-  display: flex;
-  gap: 30px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
 .trust-item {
-  flex: 1;
-  border: 1px solid var(--border);
-  padding: 25px;
-  font-weight: 600;
-  background: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  transition: var(--transition);
+  position: relative;
 }
 
-/* =============================
-   PRACTICE AREAS GRID
-============================= */
+.trust-item:hover {
+  transform: translateY(-10px);
+}
+
+.trust-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+}
+
+.trust-number {
+  display: block;
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-weight: 300;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.trust-label {
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* -----------------------------
+   PRACTICE AREAS PREVIEW
+-------------------------------- */
 .services-preview {
-  background: var(--light);
+  background: var(--cream);
+  position: relative;
+}
+
+.services-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.02"><path d="M500,100 C723,100 900,277 900,500 C900,723 723,900 500,900 C277,900 100,723 100,500 C100,277 277,100 500,100 Z"/></svg>') center/300px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  margin-top: 40px;
+  gap: 30px;
+  margin-top: 60px;
 }
 
 .card {
+  background: white;
   border: 1px solid var(--border);
-  padding: 30px;
-  background: #fff;
-  font-weight: 600;
+  padding: 50px 35px;
   text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
-/* =============================
-   PRACTICE AREA PAGE
-============================= */
-.practice-area {
-  max-width: 900px;
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
 }
 
-.practice-area ul {
-  margin: 15px 0 25px 20px;
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-heavy);
+  border-color: transparent;
 }
 
-.practice-area li {
-  margin-bottom: 8px;
+.card:hover::before {
+  transform: scaleX(1);
 }
 
-/* =============================
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--navy);
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 50px;
+  font-weight: 500;
+  color: var(--navy);
+  font-size: 1.1rem;
+  gap: 10px;
+}
+
+.link:hover {
+  color: var(--gold);
+  gap: 15px;
+}
+
+/* -----------------------------
    CTA STRIP
-============================= */
+-------------------------------- */
 .cta-strip {
-  background: var(--navy);
-  color: #fff;
+  background: linear-gradient(135deg, var(--navy) 0%, #15273d 100%);
+  color: white;
   text-align: center;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.cta-strip h3 {
-  color: #fff;
+.cta-strip::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(197, 165, 114, 0.1) 0%, transparent 70%);
+}
+
+.cta-strip h2 {
+  color: white;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-strip h2::after {
+  background: var(--gold);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .cta-strip p {
-  color: #e0e0e0;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.2rem;
 }
 
-/* =============================
-   TESTIMONIALS
-============================= */
-blockquote {
-  background: var(--light);
+.cta-strip .btn-primary {
+  margin-top: 30px;
+}
+
+/* -----------------------------
+   PRACTICE AREA PAGE
+-------------------------------- */
+.practice-area {
+  background: white;
+  padding: 60px;
+  margin-bottom: 40px;
   border-left: 4px solid var(--gold);
-  padding: 25px;
+  transition: var(--transition);
+}
+
+.practice-area:hover {
+  box-shadow: var(--shadow);
+}
+
+.practice-area h2 {
   margin-bottom: 25px;
+}
+
+.practice-area ul {
+  margin: 20px 0 30px 40px;
+  list-style: none;
+}
+
+.practice-area li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.practice-area li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+/* -----------------------------
+   TESTIMONIALS
+-------------------------------- */
+.testimonials {
+  background: var(--cream);
+  position: relative;
+}
+
+blockquote {
+  background: white;
+  border-left: 4px solid var(--gold);
+  padding: 50px;
+  margin-bottom: 40px;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+blockquote::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 5rem;
+  font-family: 'Playfair Display', serif;
+  color: rgba(197, 165, 114, 0.2);
+  line-height: 1;
+}
+
+blockquote p {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--charcoal);
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
 }
 
 blockquote span {
   display: block;
-  margin-top: 10px;
+  margin-top: 20px;
   font-weight: 600;
+  color: var(--navy);
+  font-size: 1.1rem;
 }
 
-/* =============================
+/* -----------------------------
    FORMS
-============================= */
+-------------------------------- */
 form {
-  max-width: 520px;
+  max-width: 600px;
+  margin: 50px auto 0;
+  background: white;
+  padding: 50px;
+  box-shadow: var(--shadow);
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
-  padding: 12px;
+  padding: 18px;
+  margin-bottom: 25px;
   border: 1px solid var(--border);
-  margin-bottom: 15px;
   font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  background: #fafafa;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.1);
 }
 
 textarea {
-  min-height: 120px;
+  min-height: 150px;
+  resize: vertical;
 }
 
-/* =============================
-   CONTACT
-============================= */
+/* -----------------------------
+   CONTACT PAGE
+-------------------------------- */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.contact-item {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  transition: var(--transition);
+}
+
+.contact-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow);
+}
+
+.contact-item i {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
 iframe {
   width: 100%;
-  height: 300px;
+  height: 400px;
   border: none;
-  margin-top: 25px;
+  margin-top: 50px;
+  filter: grayscale(1) contrast(1.1);
 }
 
-/* =============================
-   DISCLAIMERS
-============================= */
+/* -----------------------------
+   DISCLAIMERS & LEGAL
+-------------------------------- */
 .disclaimer {
   font-size: 0.85rem;
-  color: #777;
-  margin-top: 15px;
+  color: #777777;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
 }
 
-/* =============================
+/* -----------------------------
    FOOTER
-============================= */
+-------------------------------- */
 footer {
-  background: var(--charcoal);
-  color: #fff;
-  padding: 40px 0;
+  background: var(--navy);
+  color: white;
+  padding: 80px 0 40px;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-column h4 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.footer-column h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+  padding-left: 5px;
+}
+
+.footer-bottom {
   text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;
 }
 
-/* =============================
-   MOBILE CTA BAR
-============================= */
-.mobile-cta-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: var(--navy);
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 0;
-  z-index: 9999;
-}
-
-.mobile-cta-bar a {
-  color: #fff;
-  font-weight: 600;
-}
-
-/* =============================
-   RESPONSIVE
-============================= */
-@media (max-width: 768px) {
-
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.7rem; }
-
-  .trust .container {
-    flex-direction: column;
+/* -----------------------------
+   ANIMATIONS
+-------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* -----------------------------
+   SCROLLBAR
+-------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-gold);
+}
+
+/* -----------------------------
+   MOBILE OPTIMIZATION
+-------------------------------- */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .trust .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { 
+    font-size: 2.5rem; 
+  }
+  
+  h2 { 
+    font-size: 2rem; 
+  }
+  
+  section {
+    padding: 70px 0;
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  .hero {
+    padding: 150px 0 90px;
+    background-attachment: scroll;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
   .grid {
     grid-template-columns: 1fr;
   }
-
-  nav a {
-    margin-left: 15px;
+  
+  .trust .container {
+    grid-template-columns: 1fr;
   }
-
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-primary,
   .btn-secondary {
-    margin-left: 0;
-    margin-top: 10px;
+    padding: 16px 30px;
   }
 }
-/* =========================================
-   READABILITY & PAGE STRUCTURE FIXES
-   (CRITICAL POLISH)
-========================================= */
 
-/* Limit text width for readability */
-.practice-area,
-section > .container {
-  max-width: 900px;
+/* -----------------------------
+   MOBILE MENU
+-------------------------------- */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--navy);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
 }
 
-/* Center long-form content */
-.practice-area {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Improve list appearance */
-.practice-area ul {
-  list-style-position: inside;
-  padding-left: 0;
-}
-
-.practice-area li {
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-/* Add visual grouping to inner pages */
-.practice-area {
-  background: #ffffff;
-  padding: 40px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-}
-
-/* Add subtle page background contrast */
-body {
-  background: #f5f7fa;
-}
-
-/* Restore white background to main sections */
-section {
-  background: #ffffff;
-}
-
-/* Improve inner-page headings spacing */
-.practice-area h2 {
-  margin-top: 0;
-}
-
-.practice-area h4 {
-  margin-top: 30px;
-}
-
-/* Prevent text from touching screen edges on mobile */
 @media (max-width: 768px) {
-  section {
-    padding: 50px 20px;
+  .mobile-menu-btn {
+    display: block;
   }
-
-  .practice-area {
-    padding: 30px 20px;
+  
+  .mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: var(--shadow-heavy);
+    padding: 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 999;
+  }
+  
+  .mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.1rem;
+  }
+  
+  .mobile-menu a.btn {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    margin-top: 20px;
+    padding: 15px;
   }
 }
 
+/* -----------------------------
+   UTILITY CLASSES
+-------------------------------- */
+.mt-0 { margin-top: 0 !important; }
+.mt-20 { margin-top: 20px !important; }
+.mt-40 { margin-top: 40px !important; }
+.mt-60 { margin-top: 60px !important; }
+
+.mb-0 { margin-bottom: 0 !important; }
+.mb-20 { margin-bottom: 20px !important; }
+.mb-40 { margin-bottom: 40px !important; }
+.mb-60 { margin-bottom: 60px !important; }
+
+.pt-0 { padding-top: 0 !important; }
+.pt-20 { padding-top: 20px !important; }
+.pt-40 { padding-top: 40px !important; }
+.pt-60 { padding-top: 60px !important; }
+
+.pb-0 { padding-bottom: 0 !important; }
+.pb-20 { padding-bottom: 20px !important; }
+.pb-40 { padding-bottom: 40px !important; }
+.pb-60 { padding-bottom: 60px !important; }
