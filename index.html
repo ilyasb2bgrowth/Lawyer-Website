@@ -8,21 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
   <style>
-    /* 1. EDGE-TO-EDGE RIBBON FIX */
-    body { margin: 0; padding: 0; overflow-x: hidden; }
+    /* 1. LAYOUT & OVERFLOW FIXES */
+    * { box-sizing: border-box; } /* Prevents "no endings"/overflow on the right */
+    body { margin: 0; padding: 0; overflow-x: hidden; font-family: 'Inter', sans-serif; }
     
-    .top-bar {
+    .blue-ribbon {
       background: #0a192f;
-      width: 100%;
       color: #c5a059;
-      padding: 12px 0;
-      font-size: 0.85rem;
+      width: 100%;
+      display: block;
     }
 
-    /* 2. RESTORED IMAGE HERO - TIGHT SPACING */
+    /* 2. READABLE HERO - DARKER OVERLAY */
     .hero-professional {
-      padding: 80px 20px 40px; /* Reduced bottom padding to bring boxes closer */
-      background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
+      padding: 60px 20px;
+      /* Darker gradient for text readability */
+      background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
                   url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
@@ -30,109 +31,139 @@
       color: #ffffff;
     }
 
-    /* 3. THE CARDS - 3 ROWS */
+    /* 3. SMALLER, COMPACT BOXES */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 30px 20px 60px; /* Tight top spacing */
-      max-width: 1240px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller min-width */
+      gap: 15px;
+      padding: 40px 20px;
+      max-width: 1100px; /* Narrower container for better focus */
       margin: 0 auto;
     }
 
     .feature-card {
       background: #ffffff;
-      padding: 35px;
+      padding: 25px; /* Smaller padding */
       border: 1px solid #e0e0e0;
       transition: all 0.3s ease;
       text-align: left;
-      min-height: 180px;
+      min-height: 140px; /* Reduced height */
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .feature-card:hover {
-      transform: translateY(-8px);
-      border-color: #c5a059;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    .feature-card h3 { 
+        font-size: 1.1rem; 
+        margin: 0 0 10px 0; 
+        color: #0a192f;
+        font-family: 'Playfair Display', serif;
     }
 
-    /* 4. FINAL ROW TRIGGER BOX */
-    .action-card {
-      background: #c5a059 !important;
-      border: none;
-      text-decoration: none;
-    }
-    .action-card h3 { color: #0a192f !important; margin-bottom: 5px; }
-    .action-card p { color: #0a192f !important; font-weight: 600; margin: 0; }
+    .feature-card p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.4; }
 
-    /* 5. SLIM REPUTATION RIBBON - EDGE TO EDGE */
-    .reputation-ribbon {
-      background: #0a192f;
-      width: 100%;
-      color: #fff;
-      padding: 30px 0; /* Slimmer width */
-      text-align: center;
+    /* 4. ACTION CARD */
+    .action-card { background: #c5a059 !important; border: none; text-decoration: none; }
+    .action-card h3, .action-card p { color: #0a192f !important; }
+
+    /* 5. NARRATIVE TEXT SECTION (Added Content) */
+    .philosophy-text {
+        max-width: 800px;
+        margin: 40px auto;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    /* 6. EXPANDED FOOTER */
+    .footer-expanded {
+        background: #0a192f;
+        color: #fff;
+        padding: 60px 20px 20px;
+        margin-top: 40px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: left;
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
-    <div style="max-width: 1240px; margin: 0 auto; display: flex; justify-content: flex-end; gap: 30px; padding: 0 20px;">
-      <a href="tel:+10000000000" style="color: #c5a059; text-decoration: none;">📞 (555) 123-4567</a>
-      <a href="https://wa.me/10000000000" style="color: #c5a059; text-decoration: none;">💬 WhatsApp</a>
+  <div class="blue-ribbon" style="padding: 10px 0;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: flex-end; gap: 30px; padding: 0 20px;">
+      <a href="tel:+10000000000" style="color: #c5a059; text-decoration: none; font-size: 0.8rem;">📞 (555) 123-4567</a>
+      <a href="https://wa.me/10000000000" style="color: #c5a059; text-decoration: none; font-size: 0.8rem;">💬 WhatsApp Counsel</a>
     </div>
   </div>
 
-  <header class="site-header" style="background: #fff; padding: 20px 0; border-bottom: 1px solid #eee;">
-    <div style="max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-      <div class="logo" style="font-family: 'Playfair Display'; font-size: 1.6rem; color: #0a192f; letter-spacing: 1px;">Sample Law Firm</div>
+  <header style="background: #fff; padding: 15px 0; border-bottom: 1px solid #eee;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+      <div style="font-family: 'Playfair Display'; font-size: 1.4rem; color: #0a192f;">Sample Law Firm</div>
       <nav>
-        <a href="index.html" style="margin-left: 25px; text-decoration: none; color: #c5a059; font-size: 0.85rem; font-weight: 600;">HOME</a>
-        <a href="about.html" style="margin-left: 25px; text-decoration: none; color: #666; font-size: 0.85rem;">ABOUT</a>
-        <a href="contact.html" style="margin-left: 25px; text-decoration: none; color: #666; font-size: 0.85rem;">CONTACT</a>
+        <a href="index.html" style="margin-left: 20px; text-decoration: none; color: #c5a059; font-size: 0.8rem; font-weight: 600;">HOME</a>
+        <a href="about.html" style="margin-left: 20px; text-decoration: none; color: #666; font-size: 0.8rem;">ABOUT</a>
+        <a href="contact.html" style="margin-left: 20px; text-decoration: none; color: #666; font-size: 0.8rem;">CONTACT</a>
       </nav>
     </div>
   </header>
 
   <section class="hero-professional">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <span style="letter-spacing: 4px; color: #c5a059; font-size: 0.8rem; font-weight: 600;">ESTABLISHED 2004</span>
-      <h1 style="font-family: 'Playfair Display'; font-size: 3.5rem; margin: 20px 0;">Strategic Advocacy.</h1>
-      <p style="font-size: 1.1rem; opacity: 0.9;">Sophisticated legal counsel for high-stakes environments.</p>
+    <div style="max-width: 700px; margin: 0 auto;">
+      <span style="letter-spacing: 4px; color: #c5a059; font-size: 0.75rem; font-weight: 600;">SINCE 2004</span>
+      <h1 style="font-family: 'Playfair Display'; font-size: 3rem; margin: 15px 0; line-height: 1.1;">Protecting Your Rights and Legacy.</h1>
+      <p style="font-size: 1rem; opacity: 0.9; font-weight: 300;">Elite advocacy for high-stakes litigation and private counsel.</p>
     </div>
   </section>
 
+  <div class="philosophy-text">
+      <h2 style="font-family: 'Playfair Display'; color: #0a192f;">Excellence Through Discretion</h2>
+      <p style="color: #666; line-height: 1.7;">Our firm provides sophisticated strategy for individuals and corporations. We understand that in the legal world, the best results are often achieved through meticulous preparation and quiet determination. We don't just practice law; we protect your future.</p>
+  </div>
+
   <div class="card-grid">
-    <div class="feature-card"><h3>Corporate Law</h3><p style="color: #666; font-size: 0.9rem;">Global governance and strategic M&A advisory.</p></div>
-    <div class="feature-card"><h3>Civil Litigation</h3><p style="color: #666; font-size: 0.9rem;">High-stakes defense in complex judicial disputes.</p></div>
-    <div class="feature-card"><h3>Private Wealth</h3><p style="color: #666; font-size: 0.9rem;">Sophisticated asset protection and trust planning.</p></div>
-    
-    <div class="feature-card"><h3>Arbitration</h3><p style="color: #666; font-size: 0.9rem;">International dispute resolution and mediation.</p></div>
-    <div class="feature-card"><h3>Real Estate</h3><p style="color: #666; font-size: 0.9rem;">Commercial development and luxury acquisitions.</p></div>
-    <div class="feature-card"><h3>IP Protection</h3><p style="color: #666; font-size: 0.9rem;">Securing intellectual property and digital assets.</p></div>
-    
-    <div class="feature-card"><h3>Tax Strategy</h3><p style="color: #666; font-size: 0.9rem;">Legal fiscal planning and regulatory compliance.</p></div>
-    <div class="feature-card"><h3>Family Law</h3><p style="color: #666; font-size: 0.9rem;">Discreet matrimonial counsel and private mediation.</p></div>
+    <div class="feature-card"><h3>Corporate</h3><p>Governance and strategic M&A.</p></div>
+    <div class="feature-card"><h3>Litigation</h3><p>High-stakes defense strategies.</p></div>
+    <div class="feature-card"><h3>Wealth</h3><p>Sophisticated asset protection.</p></div>
+    <div class="feature-card"><h3>Arbitration</h3><p>International dispute resolution.</p></div>
+    <div class="feature-card"><h3>Real Estate</h3><p>Commercial luxury transactions.</p></div>
+    <div class="feature-card"><h3>IP Law</h3><p>Securing intellectual property.</p></div>
+    <div class="feature-card"><h3>Tax Law</h3><p>Legal fiscal strategic planning.</p></div>
+    <div class="feature-card"><h3>Family Law</h3><p>Private matrimonial mediation.</p></div>
     
     <a href="contact.html" class="feature-card action-card">
-        <h3>What you actually need?</h3>
-        <p>Talk to our principal counsel →</p>
+        <h3 style="margin: 0;">What you actually need?</h3>
+        <p>Contact our principal counsel →</p>
     </a>
   </div>
 
-  <section class="reputation-ribbon">
-    <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap;">
-      <div><h2 style="color: #c5a059; margin: 0;">20+</h2><p style="font-size: 0.65rem; letter-spacing: 2px; margin-top: 5px;">YEARS</p></div>
-      <div><h2 style="color: #c5a059; margin: 0;">$2B+</h2><p style="font-size: 0.65rem; letter-spacing: 2px; margin-top: 5px;">PROTECTED</p></div>
-      <div><h2 style="color: #c5a059; margin: 0;">100%</h2><p style="font-size: 0.65rem; letter-spacing: 2px; margin-top: 5px;">CONFIDENTIAL</p></div>
+  <div class="blue-ribbon" style="padding: 25px 0;">
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-around; text-align: center;">
+      <div><h4 style="margin: 0; font-size: 1.5rem;">20+</h4><p style="font-size: 0.6rem; letter-spacing: 1px;">YEARS</p></div>
+      <div><h4 style="margin: 0; font-size: 1.5rem;">$2B+</h4><p style="font-size: 0.6rem; letter-spacing: 1px;">SECURED</p></div>
+      <div><h4 style="margin: 0; font-size: 1.5rem;">98%</h4><p style="font-size: 0.6rem; letter-spacing: 1px;">SUCCESS</p></div>
     </div>
-  </section>
+  </div>
 
-  <footer style="text-align: center; padding: 40px; background: #fff; color: #999; font-size: 0.75rem;">
-    © 2026 Sample Law Firm | Elite Professional Portfolio
+  <footer class="footer-expanded">
+      <div class="footer-grid">
+          <div>
+              <h4 style="color: #c5a059; margin-bottom: 15px;">Sample Law Firm</h4>
+              <p style="font-size: 0.8rem; line-height: 1.6; opacity: 0.7;">Providing elite legal counsel with a focus on integrity, discretion, and results. Our chambers are located in the heart of the legal district, serving clients globally.</p>
+          </div>
+          <div>
+              <h4 style="color: #c5a059; margin-bottom: 15px;">Legal Services</h4>
+              <p style="font-size: 0.8rem; line-height: 2; opacity: 0.7;">Corporate Governance<br>Civil Litigation<br>Private Wealth<br>Tax Strategy</p>
+          </div>
+          <div>
+              <h4 style="color: #c5a059; margin-bottom: 15px;">Confidentiality</h4>
+              <p style="font-size: 0.8rem; line-height: 1.6; opacity: 0.7;">We prioritize attorney-client privilege. All communications are strictly confidential and handled with the highest level of security.</p>
+          </div>
+      </div>
+      <p style="text-align: center; margin-top: 40px; font-size: 0.7rem; opacity: 0.4;">© 2026 Sample Law Firm | Elite Professional Demo</p>
   </footer>
 
 </body>
