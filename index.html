@@ -3,8 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample Law Firm | Premium Legal Services</title>
+  <title>Sample Law Firm | Premium Legal Counsel</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* LUXURY HOME STYLES */
+    .hero-luxury {
+      padding: 120px 20px;
+      background: linear-gradient(rgba(252, 250, 245, 0.9), rgba(252, 250, 245, 0.9)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* THE "POPPING" CARDS */
+    .feature-card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 350px;
+      background: #ffffff;
+      padding: 40px 30px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      border-color: #c5a059;
+      box-shadow: 0 20px 40px rgba(10, 25, 47, 0.05);
+    }
+
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #c5a059;
+      transition: width 0.4s ease;
+    }
+
+    .feature-card:hover::after {
+      width: 100%;
+    }
+
+    .card-icon {
+      color: #c5a059;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .luxury-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #0a192f;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .luxury-button:hover {
+      background: #c5a059;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -19,7 +102,7 @@
     <div class="container">
       <div class="logo">Sample Law Firm</div>
       <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html" style="color: #c5a059;">Home</a>
         <a href="about.html">About</a>
         <a href="practice-areas.html">Practice Areas</a>
         <a href="contact.html">Contact</a>
@@ -27,38 +110,64 @@
     </div>
   </header>
 
-  <section style="background: var(--ivory);">
-    <div class="container text-center">
-      <h1>Experienced Legal Representation You Can Trust</h1>
-      <p style="max-width: 700px; margin: 0 auto 40px;">Calm, clear, and confidential legal guidance when it matters most. We protect your rights with integrity and discretion.</p>
-      <a href="contact.html" class="btn-primary">Request Consultation</a>
+  <section class="hero-luxury">
+    <div class="container">
+      <span style="color: #c5a059; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; font-weight: 600;">Premier Defense & Counsel</span>
+      <h1 style="font-family: 'Playfair Display'; font-size: clamp(2.5rem, 5vw, 4rem); color: #0a192f; margin: 20px 0;">Protecting Your Legacy <br>With Discretion.</h1>
+      <p style="max-width: 600px; margin: 0 auto 40px; color: #555; line-height: 1.8;">Sophisticated legal strategies for high-stakes litigation and private wealth management.</p>
+      <a href="contact.html" class="luxury-button">Request Private Briefing</a>
     </div>
   </section>
 
-  <section>
+  <section style="background: #fff;">
+    <div class="container" style="text-align: center; padding-top: 80px;">
+      <h2 style="font-family: 'Playfair Display'; font-size: 2rem;">Our Expertise</h2>
+    </div>
+    
+    <div class="card-container">
+      
+      <div class="feature-card">
+        <span class="card-icon">⚖</span>
+        <h3 style="margin-bottom: 15px; font-family: 'Playfair Display';">Corporate Law</h3>
+        <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Complex governance, mergers, and strategic business advisory for global entities.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="card-icon">🏛</span>
+        <h3 style="margin-bottom: 15px; font-family: 'Playfair Display';">Civil Litigation</h3>
+        <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Aggressive courtroom advocacy with a focus on high-value dispute resolution.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="card-icon">🔐</span>
+        <h3 style="margin-bottom: 15px; font-family: 'Playfair Display';">Private Wealth</h3>
+        <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Securing assets and legacies through sophisticated estate and trust structures.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="background: #0a192f; color: #fff; padding: 60px 0; text-align: center;">
     <div class="container">
-      <h2 class="text-center">Our Practice Areas</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Civil Litigation</h3>
-          <p>Strategic representation for complex disputes and courtroom advocacy.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px;">
+        <div>
+          <h2 style="color: #c5a059; font-size: 2.5rem;">20+</h2>
+          <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px;">Years Experience</p>
         </div>
-        <div class="card">
-          <h3>Family Law</h3>
-          <p>Compassionate guidance through divorce and custody matters.</p>
+        <div>
+          <h2 style="color: #c5a059; font-size: 2.5rem;">$2B+</h2>
+          <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px;">Assets Protected</p>
         </div>
-        <div class="card">
-          <h3>Corporate Law</h3>
-          <p>Expert counsel for business formation and contract negotiations.</p>
+        <div>
+          <h2 style="color: #c5a059; font-size: 2.5rem;">98%</h2>
+          <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px;">Client Retention</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer style="background: var(--navy); color: #fff; padding: 60px 0; text-align: center;">
-    <div class="container">
-      <p>© 2024 Sample Law Firm · Demo Project</p>
-    </div>
+  <footer style="background: #fcfaf5; padding: 60px 0; text-align: center; border-top: 1px solid #eee;">
+    <p style="color: #999; font-size: 0.8rem;">© 2026 Sample Law Firm | Elite Legal Template</p>
   </footer>
 
 </body>
