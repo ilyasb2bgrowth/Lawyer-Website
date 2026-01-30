@@ -236,3 +236,39 @@ footer p { color: rgba(255,255,255,0.6); }
 .card {
     animation: fadeInUp 0.6s ease-out forwards;
 }
+/* --- TOP CONTACT BAR (PREMIUM) --- */
+.top-bar {
+    background: var(--navy); /* Uses your deep midnight color */
+    color: var(--gold);      /* Uses your champagne gold for the icons/text */
+    padding: 10px 0;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: flex-end; /* Puts contact info on the right */
+    gap: 30px;
+}
+
+.top-bar a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-bar a:hover {
+    color: #fff;
+}
+
+/* Mobile fix for top bar */
+@media (max-width: 768px) {
+    .top-bar .container {
+        justify-content: center;
+        gap: 15px;
+    }
+}
