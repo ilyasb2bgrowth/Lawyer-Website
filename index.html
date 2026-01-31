@@ -3,147 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample Law Firm | Premier Legal Counsel</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  
+  <title>Sample Law Firm | Premier Counsel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* MASTER ALIGNMENT FIX */
+    /* MASTER SYMMETRY & LUXURY THEME */
     * { box-sizing: border-box; }
-    
     body { 
-      margin: 0; 
-      padding: 0; 
-      background-color: #f0f0f0; /* Grey background makes the 1100px site look centered */
-      display: flex;
-      flex-direction: column;
-      align-items: center; 
+      margin: 0; padding: 0; 
+      background-color: #f8f9fa; /* Light sophisticated grey background */
+      font-family: 'Inter', sans-serif;
+      display: flex; flex-direction: column; align-items: center;
     }
 
-    /* This forces every section to stay in the middle with the same width */
     .site-container {
       width: 100%;
       max-width: 1100px;
-      margin: 0 auto;
-      background-color: #ffffff;
+      margin: 20px auto;
+      background: #ffffff;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.08);
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      border: 1px solid #eaeaea;
     }
 
-    /* BLUE RIBBONS (Top, Middle, Bottom) */
-    .dark-ribbon {
+    /* SUBTLE TOP BAR */
+    .top-ribbon {
       background: #0a192f;
       color: #c5a059;
-      padding: 15px 30px;
+      padding: 10px 30px;
       display: flex;
       justify-content: flex-end;
-      width: 100%;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
     }
 
-    /* THE MIDDLE RIBBON (HERO) - NOW LIMITED TO SITE WIDTH */
-    .hero-ribbon {
-      padding: 110px 40px;
-      background: linear-gradient(rgba(10, 25, 47, 0.88), rgba(10, 25, 47, 0.88)), 
+    /* CLEAN WHITE HEADER */
+    header {
+      padding: 40px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #0a192f;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #666;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #c5a059; }
+
+    /* REFINED HERO (The "Ribbon" is now a sleek overlay) */
+    .hero-section {
+      position: relative;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
                   url('https://images.unsplash.com/photo-1589578027962-eb52189b41c0?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
-      text-align: center;
-      width: 100%;
+      color: white;
     }
 
-    .hero-ribbon h1 {
+    .hero-content h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      color: #ffffff !important; /* Bright White */
-      margin: 20px 0;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      font-size: 3.2rem;
+      margin: 0 0 15px 0;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
     }
 
-    /* BOXES WITH CLEAR BOUNDARIES */
+    .hero-content p {
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #c5a059;
+      text-transform: uppercase;
+    }
+
+    /* GRID WITH SHARP DARK BORDERS */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      padding: 40px 30px;
+      padding: 60px 30px;
+      background: #fff;
     }
 
     .feature-card {
-      background: #ffffff;
-      padding: 30px;
-      border: 2px solid #333; /* Dark, clear borders */
-      min-height: 160px;
+      padding: 35px;
+      background: #fff;
+      border: 1.5px solid #222; /* Sharp, dark professional borders */
+      transition: transform 0.3s, border-color 0.3s;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .action-card { 
-      background: #c5a059 !important; 
-      border: 2px solid #0a192f;
-      text-decoration: none;
+    .feature-card:hover {
+      border-color: #c5a059;
+      transform: translateY(-5px);
     }
 
-    header { padding: 30px; display: flex; justify-content: space-between; align-items: center; }
-    nav a { margin-left: 20px; text-decoration: none; color: #666; font-size: 0.9rem; font-weight: 600; }
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #0a192f;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #555;
+      margin: 0;
+    }
+
+    /* ACTION CARD (GOLD) */
+    .action-card {
+      background: #c5a059 !important;
+      border: 1.5px solid #0a192f !important;
+      text-decoration: none;
+    }
+    .action-card h3, .action-card p { color: #0a192f !important; font-weight: 600; }
+
+    /* STATS BAR (Symmetric Bottom Ribbon) */
+    .stats-bar {
+      background: #0a192f;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .stat-item h4 { font-size: 2rem; color: #fff; margin: 0; font-family: 'Playfair Display'; }
+    .stat-item p { font-size: 0.7rem; color: #c5a059; letter-spacing: 2px; margin-top: 5px; text-transform: uppercase; }
+
+    footer {
+      padding: 40px;
+      text-align: center;
+      background: #fff;
+      color: #999;
+      font-size: 0.75rem;
+      border-top: 1px solid #eee;
+    }
   </style>
 </head>
 <body>
 
-  <div class="site-container">
+<div class="site-container">
+  
+  <div class="top-ribbon">
+    <span style="margin-right: 25px;">TEL: (555) 123-4567</span>
+    <span>ENCRYPTED WHATSAPP COUNSEL</span>
+  </div>
 
-    <div class="dark-ribbon">
-        <a href="tel:+10000000000" style="color: #c5a059; text-decoration: none; margin-right: 20px;">📞 (555) 123-4567</a>
-        <a href="https://wa.me/10000000000" style="color: #c5a059; text-decoration: none;">💬 WhatsApp</a>
+  <header>
+    <div class="logo">Sample Law Firm</div>
+    <nav>
+      <a href="index.html" style="color: #c5a059;">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="practice-areas.html">PRACTICE AREAS</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <p>Bespoke Legal Strategies</p>
+      <h1>Protecting Your Rights<br>and Legacy.</h1>
     </div>
+  </section>
 
-    <header>
-        <div style="font-family: 'Playfair Display'; font-size: 1.8rem; color: #0a192f;">Sample Law Firm</div>
-        <nav>
-          <a href="index.html" style="color: #c5a059;">HOME</a>
-          <a href="about.html">ABOUT</a>
-          <a href="contact.html">CONTACT</a>
-        </nav>
-    </header>
-
-    <section class="hero-ribbon">
-        <span style="letter-spacing: 5px; color: #c5a059; font-size: 0.8rem; font-weight: 600;">SINCE 2004</span>
-        <h1>Protecting Your Rights and Legacy.</h1>
-        <p style="color: #fff; font-size: 1.2rem; opacity: 0.9; font-weight: 300;">Professional Advocacy & Private Counsel</p>
-    </section>
-
-    <div style="padding: 60px 40px; text-align: center;">
-        <h2 style="font-family: 'Playfair Display'; color: #0a192f;">Excellence Through Discretion</h2>
-        <p style="color: #555; line-height: 1.8; max-width: 750px; margin: 20px auto;">Our firm provides bespoke legal solutions for a discerning clientele. We believe that professional integrity is the foundation of every successful case.</p>
+  <div class="card-grid">
+    <div class="feature-card">
+      <h3>Corporate</h3>
+      <p>Governance and strategic M&A for international entities.</p>
     </div>
-
-    <div class="card-grid">
-      <div class="feature-card"><h3>Corporate</h3><p>Governance and strategic M&A.</p></div>
-      <div class="feature-card"><h3>Litigation</h3><p>High-stakes defense strategies.</p></div>
-      <div class="feature-card">
-          <h3>Employment Law</h3>
-          <p>Strategic counsel on workplace regulations, executive contracts, and dispute resolution.</p>
-      </div>
-      <div class="feature-card">
-          <h3>Energy & Infrastructure</h3>
-          <p>Legal advisory for complex project financing and regulatory compliance.</p>
-      </div>
-      <div class="feature-card"><h3>Wealth</h3><p>Asset protection and trusts.</p></div>
-      
-      <a href="contact.html" class="feature-card action-card">
-          <h3 style="color:#0a192f;">What you actually need?</h3>
-          <p style="color:#0a192f;">Contact our counsel today →</p>
-      </a>
+    <div class="feature-card">
+      <h3>Litigation</h3>
+      <p>High-stakes defense strategies in complex civil courts.</p>
     </div>
-
-    <div class="dark-ribbon" style="justify-content: space-around; padding: 50px 20px; border-top: 1px solid #c5a059;">
-        <div style="text-align: center;"><h4 style="margin: 0; font-size: 2rem; color: #fff;">20+</h4><p style="font-size: 0.7rem; color: #c5a059; letter-spacing: 2px;">YEARS</p></div>
-        <div style="text-align: center;"><h4 style="margin: 0; font-size: 2rem; color: #fff;">$2B+</h4><p style="font-size: 0.7rem; color: #c5a059; letter-spacing: 2px;">SECURED</p></div>
-        <div style="text-align: center;"><h4 style="margin: 0; font-size: 2rem; color: #fff;">98%</h4><p style="font-size: 0.7rem; color: #c5a059; letter-spacing: 2px;">SUCCESS</p></div>
+    <div class="feature-card">
+      <h3>Employment Law</h3>
+      <p>Strategic counsel on workplace regulations and contracts.</p>
     </div>
+    <div class="feature-card">
+      <h3>Energy & Infrastructure</h3>
+      <p>Regulatory compliance for complex global project financing.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Private Wealth</h3>
+      <p>Asset protection and discreet private trust management.</p>
+    </div>
+    
+    <a href="contact.html" class="feature-card action-card">
+      <h3>What you actually need?</h3>
+      <p>Talk to our principal counsel today →</p>
+    </a>
+  </div>
 
-    <footer style="padding: 40px; text-align: center; color: #aaa; font-size: 0.8rem;">
-        © 2026 Sample Law Firm | Elite Portfolio
-    </footer>
+  <div class="stats-bar">
+    <div class="stat-item"><h4>20+</h4><p>Years</p></div>
+    <div class="stat-item"><h4>$2B+</h4><p>Secured</p></div>
+    <div class="stat-item"><h4>98%</h4><p>Success</p></div>
+  </div>
 
-  </div> </body>
+  <footer>
+    © 2026 Sample Law Firm | Elite Professional Portfolio
+  </footer>
+
+</div>
+
+</body>
 </html>
